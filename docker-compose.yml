@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  orangehrm-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: orangehrm-tests
+    env_file: .env
+    volumes:
+      - .:/app
+      - ./allure-results:/app/allure-results
+      - ./screenshots:/app/screenshots
+      - ./trace:/app/trace
+    command: ["pytest", "--alluredir=allure-results"]
+    depends_on:
+      - allure
+
+  allure:
+    image: frankescobar/allure-docker-service
+    container_name: allure-server
+    ports:
+      - "5050:5050"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 2
+      KEEP_HISTORY: "TRUE"
+    volumes:
+      - ./allure-results:/app/allure-results
