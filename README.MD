@@ -28,8 +28,8 @@ Automated end-to-end test framework for [OrangeHRM Demo](https://opensource-demo
 ## 🛠️ Installation
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/shlomi10/OrangeHRM.git
+cd OrangeHRM
 python -m venv .venv
 source .venv/bin/activate    # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
