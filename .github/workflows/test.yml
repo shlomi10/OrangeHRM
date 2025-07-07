@@ -1,0 +1,70 @@
+name: Run Tests & Publish Allure Report
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Create Local Directories for Mounting
+        run: |
+          mkdir -p ./output ./allure-results
+
+      - name: Build Docker Image Locally
+        run: |
+          docker build -t orangeHRM:local -f Dockerfile .
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install allure-pytest
+
+      - name: Run tests with Allure
+        run: |
+          pytest --alluredir=allure-results
+        continue-on-error: true
+
+      - name: Load Allure history
+        uses: actions/checkout@v3
+        if: always()
+        with:
+          ref: gh-pages
+          path: history
+
+      - name: Build Allure report
+        uses: simple-elf/[email protected]
+        if: always()
+        with:
+          gh_pages: history
+          allure_results: allure-results
+          allure_history: allure-report
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-report

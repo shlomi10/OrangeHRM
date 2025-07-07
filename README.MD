@@ -1,7 +1,8 @@
 # 🧪 OrangeHRM Automated Test Suite
 
-[![Test Workflow](https://github.com/shlomi10/<your-repo>/actions/workflows/test.yml/badge.svg)](https://github.com/<your-username>/<your-repo>/actions/workflows/test.yml)
-[![Allure Report](https://img.shields.io/badge/allure-report-blue)](https://shlomi10.github.io/<your-repo>/)
+
+[![Test Workflow](https://github.com/shlomi10/OrangeHRM/actions/workflows/test.yml/badge.svg)](https://github.com/shlomi10/OrangeHRM/actions/workflows/test.yml)
+[![Allure Report](https://img.shields.io/badge/allure-report-blue)](https://shlomi10.github.io/OrangeHRM/)
 
 Automated end-to-end test framework for [OrangeHRM Demo](https://opensource-demo.orangehrmlive.com/web/index.php/auth/login) built with:
 
