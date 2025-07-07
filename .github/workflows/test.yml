@@ -54,7 +54,7 @@ jobs:
           path: history
 
       - name: Build Allure report
-        uses: simple-elf/[email protected]
+        uses: simple-elf/allure-report-action@master
         if: always()
         with:
           gh_pages: history
