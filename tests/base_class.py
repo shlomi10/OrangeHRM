@@ -23,6 +23,9 @@ class BaseClass:
         self.admin_username = os.getenv("ADMIN_USERNAME")
         self.admin_password = os.getenv("ADMIN_PASSWORD")
         self.users_table = os.getenv("USERS_TABLE")
+        self.users = os.getenv("USERS")
+        self.system_users = os.getenv("SYSTEM_USERS")
+        self.employees = os.getenv("EMPLOYEES")
         self.admin_page = AdminPage(self.page)
         self.login_page = LoginPage(self.page)
         self.api = UserAPI(

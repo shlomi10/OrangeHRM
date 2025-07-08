@@ -8,6 +8,7 @@ from pages.basePage import BasePage
 This file contains the users api calls
 """
 
+
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.story("users api calls")
 class UserAPI(BasePage):
@@ -18,7 +19,6 @@ class UserAPI(BasePage):
         self.username_field = page.locator('input[name="username"]')
         self.password_field = page.locator('input[name="password"]')
         self.submitBTN = page.locator('button[type="submit"]')
-
         self.base_url = base_url
         self.login_path = login_path
         self.admin_username = admin_username
@@ -52,8 +52,8 @@ class UserAPI(BasePage):
         self.logger.error("Failed to get session cookie from browser login.")
         return False
 
-    def get_existing_emp_number(self):
-        url = f"{self.base_url}/web/index.php/api/v2/pim/employees"
+    def get_existing_emp_number(self, initialize):
+        url = initialize.base_url + initialize.employees
         response = self.session.get(url)
         self.logger.info(f"Get employees response: {response.status_code} - {response.text}")
 
@@ -70,20 +70,20 @@ class UserAPI(BasePage):
 
         return None
 
-    def create_user(self, username, password):
+    def create_user(self, initialize, username, password):
         self.logger.info(f"Creating user: {username}")
 
-        emp_number = self.get_existing_emp_number()
+        emp_number = self.get_existing_emp_number(initialize)
         if not emp_number:
             self.logger.error("No valid employee found.")
             return False
 
-        url = f"{self.base_url}/web/index.php/api/v2/admin/users"
+        url = initialize.base_url + initialize.users
         headers = {
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "Origin": self.base_url,
-            "Referer": f"{self.base_url}/web/index.php/admin/saveSystemUser"
+            "Origin": initialize.base_url,
+            "Referer": initialize.base_url + initialize.system_users
         }
 
         payload = {

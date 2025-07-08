@@ -1,22 +1,18 @@
 import time
-
 import pytest
 import logging
 import allure
 from tests.conftest import initialize
-from dotenv import load_dotenv
-
-load_dotenv()
 
 """
 This file contains the main tests
 """
 
+
 @allure.epic("Functionality")
 @allure.feature("title - functionality")
 @allure.story("validate the Orange HRM function")
 class TestOrangeHRM:
-
     logger = logging.getLogger(__name__)
     username = f"testuser_{int(time.time())}"
     password = "Password123!"
@@ -29,7 +25,7 @@ class TestOrangeHRM:
     def test_create_user_via_api(self, initialize):
         self.logger.info("Running API user creation test.")
         assert initialize.api.login_admin(), "Admin login via API failed"
-        assert initialize.api.create_user(self.username, self.password), "User creation failed via API"
+        assert initialize.api.create_user(initialize, self.username, self.password), "User creation failed via API"
 
     @allure.epic("User Management")
     @allure.feature("UI User Deletion")
@@ -53,4 +49,3 @@ class TestOrangeHRM:
         with allure.step("Verify user was deleted successfully"):
             assert not initialize.admin_page.is_user_present(
                 self.username), f"User '{self.username}' still exists in the table"
-
