@@ -1,18 +1,21 @@
-version: "3.9"
-
 services:
-  orangehrm-tests:
+  tests:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: orangehrm-tests
-    env_file: .env
+    env_file: ./utils/.env
     volumes:
       - .:/app
       - ./allure-results:/app/allure-results
       - ./screenshots:/app/screenshots
       - ./trace:/app/trace
-    command: ["pytest", "--alluredir=allure-results"]
+    command: [
+      "xvfb-run",
+      "--server-args=-screen 0 1920x1080x24",
+      "pytest",
+      "--alluredir=allure-results"
+    ]
     depends_on:
       - allure
 
