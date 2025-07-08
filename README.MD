@@ -1,163 +1,353 @@
 # 🧪 OrangeHRM Automated Test Suite
 
+<div align="center">
+
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
 [![Python](https://img.shields.io/badge/Python-3.13.5-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
 [![Pytest](https://img.shields.io/badge/Pytest-Test_Framework-green.svg?style=for-the-badge&logo=pytest)](https://docs.pytest.org/)
 [![Allure](https://img.shields.io/badge/Allure-Reports-orange.svg?style=for-the-badge&logo=allure)](https://docs.qameta.io/allure/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg?style=for-the-badge&logo=docker)](https://docs.docker.com/compose/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/shlomi10/orangehrm?style=for-the-badge)](https://hub.docker.com/r/shlomi10/orangehrm)
-[![Docker Image Size](https://img.shields.io/docker/image-size/shlomi10/orangehrm/001?style=for-the-badge
-)](https://hub.docker.com/r/shlomi10/orangehrm)
 
-* 🎭 **Playwright** — UI automation
-* 🐍 **Python + Pytest** — test framework
-* 🔐 **REST API** — user creation and management
-* 🧱 **Page Object Model** — clean test structure
-* 📊 **Allure Reporting** — beautiful reports
-* 🐳 **Docker + Docker Compose** — local and CI support
-* ☁️ **GitHub Actions** — cloud CI with Allure Report deployment
+[![Docker Pulls](https://img.shields.io/docker/pulls/shlomi10/orangehrm?style=for-the-badge)](https://hub.docker.com/r/shlomi10/orangehrm)
+[![Docker Image Size](https://img.shields.io/docker/image-size/shlomi10/orangehrm/001?style=for-the-badge)](https://hub.docker.com/r/shlomi10/orangehrm)
+
+**🎯 A comprehensive end-to-end test automation suite for OrangeHRM using modern tools and best practices**
+
+[🚀 Quick Start](#-quick-start) • [🐳 Docker Hub](https://hub.docker.com/r/shlomi10/orangehrm)
+
+</div>
+
+---
+
+## 🌟 Overview
+
+This test automation suite provides comprehensive coverage for OrangeHRM's core functionality, combining API and UI testing with modern DevOps practices. The suite demonstrates a complete user lifecycle: creating users via API and managing them through the web interface.
+
+### 🔧 Tech Stack
+
+| Technology | Purpose | Version |
+|------------|---------|---------|
+| 🎭 **Playwright** | Cross-browser UI automation | Latest |
+| 🐍 **Python** | Core language | 3.13.5 |
+| 🧪 **Pytest** | Testing framework | Latest |
+| 🔐 **REST API** | User management & data setup | - |
+| 🧱 **Page Object Model** | Clean, maintainable test structure | - |
+| 📊 **Allure** | Rich HTML reporting | Latest |
+| 🐳 **Docker** | Containerization & CI/CD | Latest |
+| ☁️ **GitHub Actions** | Continuous Integration | - |
 
 ---
 
 ## 🚀 Features
 
-* Create a system user via API
-* Delete the user via UI using the Admin panel
-* Cross-step data sharing
-* Detailed Allure reporting
-* Logging and screenshots on failure
+### ✨ Core Capabilities
+- **🔄 End-to-End Testing**: Complete user lifecycle from creation to deletion
+- **🌐 Cross-Browser Support**: Chrome, Firefox, Safari, and Edge
+- **📱 Multi-Platform**: Windows, macOS, and Linux compatibility
+- **🔀 Hybrid Approach**: API for setup, UI for business logic validation
+- **📊 Rich Reporting**: Detailed Allure reports with screenshots and traces
+- **🐳 Containerized**: Ready for local development and CI/CD pipelines
+
+### 🎯 Test Scenarios
+- ✅ System user creation via REST API
+- ✅ Admin panel navigation and user management
+- ✅ User deletion through UI workflow
+- ✅ Data validation and error handling
+- ✅ Cross-step data sharing and state management
+
+### 📈 DevOps Integration
+- **🚀 GitHub Actions**: Automated testing on every push/PR
+- **📊 Allure Reports**: Auto-generated and deployed to GitHub Pages
+- **🐳 Docker Hub**: Pre-built images for quick deployment
+- **🔍 Debugging**: Playwright traces and failure screenshots
 
 ---
 
-## 🛠️ Installation (Local)
+## 🚀 Quick Start
+
+### 📋 Prerequisites
+- Python 3.13.5 or higher
+- Docker & Docker Compose (optional)
+- Git
+
+### 🛠️ Local Installation
 
 ```bash
+# Clone the repository
 git clone https://github.com/shlomi10/OrangeHRM.git
 cd OrangeHRM
+
+# Create virtual environment
 python -m venv .venv
-source .venv/bin/activate    # or .venv\Scripts\activate on Windows
+
+# Activate virtual environment
+source .venv/bin/activate    # Linux/macOS
+# or
+.venv\Scripts\activate      # Windows
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Install Playwright browsers
+playwright install
 ```
 
----
-
-## 🧪 Run Tests Locally
+### 🧪 Running Tests
 
 ```bash
+# Run all tests with Allure reporting
 pytest --alluredir=allure-results
+
+# Run specific test file
+pytest tests/test_user_flow.py --alluredir=allure-results
+
+# Run with verbose output
+pytest -v --alluredir=allure-results
+
+# Generate and serve Allure report
 allure serve allure-results
 ```
 
 ---
 
-## 🐳 Docker
+## 🐳 Docker Usage
 
-### Build the image
+### 🏃‍♂️ Quick Run (Using Docker Hub Image)
 
 ```bash
-docker build -t orangehrm-tests .
+# Pull and run the latest image
+docker run --rm -v "${PWD}/allure-results:/app/allure-results" shlomi10/orangehrm:latest
+
+# Run specific tag
+docker run --rm -v "${PWD}/allure-results:/app/allure-results" shlomi10/orangehrm:v1.0.0
 ```
 
-### Run tests in container
+### 🔨 Build Local Image
 
 ```bash
+# Build the image
+docker build -t orangehrm-tests .
+
+# Run tests in container
 docker run --rm -v "${PWD}/allure-results:/app/allure-results" orangehrm-tests
 ```
 
----
-
-## 🐳 Docker Compose (with Allure UI)
-
-### 1. Run the full stack
+### 🐳 Docker Compose (Full Stack)
 
 ```bash
+# Start the complete testing environment
 docker-compose up --build
+
+# Run in detached mode
+docker-compose up -d --build
+
+# View logs
+docker-compose logs -f tests
+
+# Re-run tests without rebuilding
+docker-compose run tests
+
+# Clean up
+docker-compose down
 ```
 
-### 2. View the report in your browser
+#### 📊 Accessing Reports
 
+After running with Docker Compose, access the Allure report at:
 ```
 http://localhost:5050/allure-docker-service/projects/default/reports/latest/index.html
 ```
 
-> If you see a blank page, make sure the `allure-results/` folder exists on your host. You can create it manually before running Compose.
-
-### 3. Re-run just the tests (without rebuilding everything)
-
-```bash
-docker-compose run tests
-```
-
-Test results will be auto-detected and updated in the Allure UI.
+> 💡 **Tip**: If you see a blank page, ensure the `allure-results/` directory exists in your project root.
 
 ---
 
-## 🤖 GitHub Actions (CI)
+## 🤖 CI/CD Pipeline
 
-This project includes a fully configured GitHub Actions workflow:
+### GitHub Actions Workflow
 
-* ✅ Pulls the prebuilt Docker image from Docker Hub
-* ✅ Runs all tests inside the container
-* ✅ Generates and uploads the Allure report
-* ✅ Publishes to GitHub Pages
+This project includes a comprehensive CI/CD pipeline that:
 
-You can find the report at:
+1. **🔄 Triggers**: Runs on every push and pull request
+2. **🐳 Docker Integration**: Uses the pre-built image from Docker Hub
+3. **🧪 Test Execution**: Runs all tests in a containerized environment
+4. **📊 Report Generation**: Creates detailed Allure reports
+5. **🚀 Deployment**: Publishes reports to GitHub Pages
 
+#### 📊 Live Reports
+
+View the latest test results and reports:
 ```
 https://shlomi10.github.io/OrangeHRM/
 ```
 
+#### 🏷️ Docker Tags
+
+Available on Docker Hub: [`shlomi10/orangehrm`](https://hub.docker.com/r/shlomi10/orangehrm)
+
+- `latest` - Most recent stable build
+- `v1.0.0` - Tagged releases
+- `main` - Latest from main branch
+
 ---
 
-2. Deploy report locally with:
+## 📂 Project Architecture
+
+```
+OrangeHRM/
+├── 🐳 Dockerfile                    # Container configuration
+├── 🐳 docker-compose.yml           # Multi-service setup
+├── 📦 requirements.txt             # Python dependencies
+├── 📄 README.md                    # Documentation
+├── 🧪 tests/
+│   └── test_user_flow.py           # Main test scenarios
+├── 📄 pages/                       # Page Object Model
+│   ├── basePage.py                 # Base page class
+│   ├── login_page.py               # Login functionality
+│   └── admin_page.py               # Admin panel operations
+├── 🔌 api/
+│   └── users_api.py                # REST API interactions
+├── ⚙️ utils/
+│   ├── conftest.py                 # Pytest configuration
+│   └── .env                        # Environment variables
+├── 📊 allure-results/              # Test results (generated)
+├── 🎭 trace/                       # Playwright traces (generated)
+└── 📁 .github/
+    └── workflows/
+        └── ci.yml                  # GitHub Actions workflow
+```
+
+---
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env` file in the `utils/` directory:
+
+```env
+# OrangeHRM Configuration
+ORANGEHRM_URL=https://opensource-demo.orangehrmlive.com
+ADMIN_USERNAME=Admin
+ADMIN_PASSWORD=admin123
+
+# API Configuration
+API_BASE_URL=https://opensource-demo.orangehrmlive.com/web/index.php/api/v2
+API_TIMEOUT=30
+
+# Test Configuration
+HEADLESS=true
+BROWSER=chromium
+TIMEOUT=30000
+```
+
+### Pytest Configuration
+
+Key settings in `pytest.ini`:
+
+```ini
+[tool:pytest]
+addopts = --strict-markers --strict-config --alluredir=allure-results
+testpaths = tests
+python_files = test_*.py
+python_classes = Test*
+python_functions = test_*
+markers =
+    smoke: marks tests as smoke tests
+    regression: marks tests as regression tests
+    api: marks tests as API tests
+    ui: marks tests as UI tests
+```
+
+---
+
+## 📊 Reporting & Debugging
+
+### 📈 Allure Reports
+
+Generate comprehensive HTML reports:
 
 ```bash
+# Generate report
 allure generate allure-results --clean -o allure-report
+
+# Serve report locally
+allure serve allure-results
+
+# Open generated report
+allure open allure-report
 ```
 
-### Playwright Traces
-
-View detailed interaction recordings for debugging:
+### 🔍 Debugging with Playwright
 
 ```bash
+# Show trace files
 npx playwright show-trace trace/trace.zip
+
+# Debug mode
+pytest --headed --slowmo=1000
+
+# Generate trace on failure
+pytest --tracing=on
 ```
 
----
+### 📝 Logging
 
-## 📂 Project Structure
-
-```
-.
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── utils/
-│   └── .env
-├── tests/
-│   └── test_user_flow.py
-├── pages/
-│   ├── basePage.py
-│   ├── login_page.py
-│   └── admin_page.py
-├── api/
-│   └── users_api.py
-└── utils/
-    └── conftest.py
-```
-
----
-
-## 📜 License
-
-MIT License — free to use, modify and distribute.
+Logs are automatically generated and include:
+- Test execution details
+- API request/response data
+- Browser console logs
+- Screenshots on failure
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature-name`
-5. Submit a pull request
+We welcome contributions! Please follow these steps:
+
+1. **🍴 Fork** the repository
+2. **🌿 Create** a feature branch: `git checkout -b feature/amazing-feature`
+3. **💾 Commit** your changes: `git commit -m 'Add amazing feature'`
+4. **📤 Push** to the branch: `git push origin feature/amazing-feature`
+5. **🔄 Open** a Pull Request
+
+### 📋 Development Guidelines
+
+- Follow PEP 8 style guidelines
+- Write comprehensive tests for new features
+- Update documentation for any changes
+- Ensure all tests pass before submitting PR
+- Use meaningful commit messages
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🆘 Support & Issues
+
+- **📋 Issues**: [GitHub Issues](https://github.com/shlomi10/OrangeHRM/issues)
+- **📖 Documentation**: [Project Wiki](https://github.com/shlomi10/OrangeHRM/wiki)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/shlomi10/OrangeHRM/discussions)
+
+---
+
+## 🙏 Acknowledgments
+
+- **OrangeHRM** - For providing the demo application
+- **Playwright Team** - For the excellent automation framework
+- **Allure Framework** - For beautiful test reporting
+- **Docker Community** - For containerization support
+
+---
+
+<div align="center">
+
+**⭐ Star this repository if you find it helpful!**
+
+Made with ❤️ by [Shlomi](https://github.com/shlomi10)
+
+</div>
