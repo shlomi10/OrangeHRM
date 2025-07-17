@@ -5,6 +5,8 @@ import shutil
 import pytest
 from playwright.sync_api import sync_playwright
 from tests.base_class import BaseClass
+from allure_commons.types import AttachmentType
+import allure
 
 logging.basicConfig(
     level=logging.INFO,
@@ -41,8 +43,6 @@ def initialize(request):
             screenshot_path = f"{screenshot_dir}/{request.node.name}.png"
             page.screenshot(path=screenshot_path, full_page=True)
             with open(screenshot_path, "rb") as image_file:
-                from allure_commons.types import AttachmentType
-                import allure
                 allure.attach(image_file.read(), name="screenshot", attachment_type=AttachmentType.PNG)
 
         context.tracing.stop(path="../trace/trace.zip")
