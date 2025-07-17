@@ -1,9 +1,0 @@
-2025-07-17 15:05:37,322 [INFO] tests.test_user_flow: Running UI user deletion test.
-2025-07-17 15:05:37,322 [INFO] pages.login_page: Logging in with user: Admin
-2025-07-17 15:05:37,605 [INFO] pages.login_page: Login submitted successfully.
-2025-07-17 15:05:37,605 [INFO] pages.admin_page: Navigating to Admin section.
-2025-07-17 15:05:39,468 [INFO] pages.admin_page: Searching for user: testuser_1752764729
-2025-07-17 15:05:39,846 [INFO] pages.admin_page: Attempting to delete user: testuser_1752764729
-2025-07-17 15:05:39,942 [INFO] pages.admin_page: User 'testuser_1752764729' deletion confirmed.
-2025-07-17 15:05:39,942 [INFO] pages.admin_page: Checking if user 'testuser_1752764729' is still present.
-2025-07-17 15:05:39,952 [INFO] pages.admin_page: Found 0 row(s) with username 'testuser_1752764729'.
