@@ -1,1 +1,0 @@
-[{"uid":"575a7b7016655918","name":"test_delete_user_via_ui","time":{"start":1752762970694,"stop":1752762972754,"duration":2060},"status":"passed","severity":"normal"},{"uid":"be16c302d0a8c089","name":"test_create_user_via_api","time":{"start":1752762966540,"stop":1752762969482,"duration":2942},"status":"passed","severity":"normal"}]

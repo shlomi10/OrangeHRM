@@ -1,9 +1,0 @@
-INFO     tests.test_user_flow:test_user_flow.py:36 Running UI user deletion test.
-INFO     pages.login_page:login_page.py:21 Logging in with user: Admin
-INFO     pages.login_page:login_page.py:25 Login submitted successfully.
-INFO     pages.admin_page:admin_page.py:19 Navigating to Admin section.
-INFO     pages.admin_page:admin_page.py:24 Searching for user: testuser_1752762965
-INFO     pages.admin_page:admin_page.py:31 Attempting to delete user: testuser_1752762965
-INFO     pages.admin_page:admin_page.py:37 User 'testuser_1752762965' deletion confirmed.
-INFO     pages.admin_page:admin_page.py:40 Checking if user 'testuser_1752762965' is still present.
-INFO     pages.admin_page:admin_page.py:43 Found 0 row(s) with username 'testuser_1752762965'.
