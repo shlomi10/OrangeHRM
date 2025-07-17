@@ -1,16 +1,22 @@
+# Python bytecode
 __pycache__/
-*.pyc
-*.pyo
-reports/
-reports-html/
-allure-results/
-.idea/
-venv/
-output.json
-pytest_html_report.html
 *.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+
+# IDEs and editors
+.idea/
 .vscode/
+
+# System files
 .DS_Store
 Thumbs.db
 
-
+# Pytest & Allure reports
+reports/
+reports-html/
+allure-results/
+output.json
+pytest_html_report.html
