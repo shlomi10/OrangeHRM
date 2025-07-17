@@ -1,20 +1,29 @@
 # 🧪 OrangeHRM Automated Test Suite
 
+
+<div align="center">
+  <img src="https://miro.medium.com/v2/resize:fit:1400/1*_sRXtPteUX0_Bzl68FX_YA.png" width="180" alt="OrangeHRM Logo">
+</div>
+
+<p align="center">
+  <em>🎯 A comprehensive end-to-end test automation suite for OrangeHRM using modern tools and best practices</em>
+</p>
+
+
 <div align="center">
 
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
 [![Python](https://img.shields.io/badge/Python-3.13.5-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
 [![Pytest](https://img.shields.io/badge/Pytest-Test_Framework-green.svg?style=for-the-badge&logo=pytest)](https://docs.pytest.org/)
-[![Allure](https://img.shields.io/badge/Allure-Reports-orange.svg?style=for-the-badge&logo=allure)](https://docs.qameta.io/allure/)
+[![Allure](https://img.shields.io/badge/Allure-Reports-9249A7.svg?style=for-the-badge&logo=allure)](https://docs.qameta.io/allure/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg?style=for-the-badge&logo=docker)](https://docs.docker.com/compose/)
-
 [![Docker Pulls](https://img.shields.io/docker/pulls/shlomi10/orangehrm?style=for-the-badge)](https://hub.docker.com/r/shlomi10/orangehrm)
 [![Docker Image Size](https://img.shields.io/docker/image-size/shlomi10/orangehrm/002?style=for-the-badge)](https://hub.docker.com/r/shlomi10/orangehrm)
-[![Live Report](https://img.shields.io/badge/Allure--Live--Report-green?style=for-the-badge&logo=allure)](https://shlomi10.github.io/OrangeHRM/)
+[![Live Report](https://img.shields.io/badge/Allure--Live--Report-ff6f00?style=for-the-badge&logo=allure)](https://shlomi10.github.io/OrangeHRM/)
 
-**🎯 A comprehensive end-to-end test automation suite for OrangeHRM using modern tools and best practices**
-
-[🚀 Quick Start](#-quick-start) • [🐳 Docker Hub](https://hub.docker.com/r/shlomi10/orangehrm)
+<p align="center">
+  <em>🎯 A comprehensive end-to-end test automation suite for OrangeHRM using modern tools and best practices</em>
+</p>
 
 </div>
 
