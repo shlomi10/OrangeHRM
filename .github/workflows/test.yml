@@ -29,7 +29,7 @@ jobs:
         run: |
           docker run --rm \
             -v ${{ github.workspace }}/allure-results:/app/allure-results \
-            -e HEADLESS=true \
+            -e CI=true \
             shlomi10/orangehrm:002 \
             pytest --alluredir=allure-results
 
