@@ -1,0 +1,3 @@
+Using empNumber: 104
+RESPONSE CODE: 200
+RESPONSE TEXT: {"data":{"id":80,"userName":"testuser_1752762965","deleted":false,"status":true,"employee":{"empNumber":104,"employeeId":"0312","firstName":"A8DCo","middleName":"4Ys","lastName":"010Z","terminationId":null},"userRole":{"id":1,"name":"Admin","displayName":"Admin"}},"meta":[],"rels":[]}
