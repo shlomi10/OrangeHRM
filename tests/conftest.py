@@ -15,11 +15,14 @@ logging.basicConfig(
 
 @pytest.fixture(scope="function")
 def initialize(request):
+    # Automatically headless in CI (e.g., GitHub Actions)
+    headless = os.getenv("CI", "false").lower() == "true"
+
     with sync_playwright() as playwright:
         user_data_dir = os.path.join(os.getcwd(), "user_data")
         context = playwright.chromium.launch_persistent_context(
             user_data_dir,
-            headless=False,
+            headless=headless,
             args=["--start-maximized", "--disable-blink-features=AutomationControlled"],
             viewport=None,
             locale="en-US",
@@ -41,7 +44,8 @@ def initialize(request):
             screenshot_dir = "../screenshots"
             os.makedirs(screenshot_dir, exist_ok=True)
             screenshot_path = f"{screenshot_dir}/{request.node.name}.png"
-            page.screenshot(path=screenshot_path, full_page=True)
+            with open(screenshot_path, "wb") as f:
+                f.write(page.screenshot(path=screenshot_path, full_page=True))
             with open(screenshot_path, "rb") as image_file:
                 allure.attach(image_file.read(), name="screenshot", attachment_type=AttachmentType.PNG)
 
@@ -49,7 +53,6 @@ def initialize(request):
         page.close()
         context.close()
 
-        # Delete the user_data directory
         if os.path.exists(user_data_dir):
             shutil.rmtree(user_data_dir)
 
