@@ -23,14 +23,14 @@ jobs:
         run: mkdir -p ./output ./allure-results
 
       - name: 🐳 Pull Docker image from Docker Hub
-        run: docker pull shlomi10/orangehrm:001
+        run: docker pull shlomi10/orangehrm:002
 
       - name: 🧪 Run tests inside Docker container
         run: |
           docker run --rm \
             -v ${{ github.workspace }}/allure-results:/app/allure-results \
             -e HEADLESS=true \
-            shlomi10/orangehrm:001 \
+            shlomi10/orangehrm:002 \
             pytest --alluredir=allure-results
 
       - name: 📥 Load Allure history (from gh-pages)
