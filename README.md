@@ -2,14 +2,8 @@
 
 
 <div align="center">
-  <img src="https://miro.medium.com/v2/resize:fit:1400/1*_sRXtPteUX0_Bzl68FX_YA.png" width="180" alt="OrangeHRM Logo">
+  <img src="https://miro.medium.com/v2/resize:fit:1400/1*_sRXtPteUX0_Bzl68FX_YA.png" width="500" alt="OrangeHRM Logo">
 </div>
-
-<p align="center">
-  <em>🎯 A comprehensive end-to-end test automation suite for OrangeHRM using modern tools and best practices</em>
-</p>
-
-
 <div align="center">
 
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
