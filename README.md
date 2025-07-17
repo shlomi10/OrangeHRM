@@ -9,7 +9,8 @@
 [![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg?style=for-the-badge&logo=docker)](https://docs.docker.com/compose/)
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/shlomi10/orangehrm?style=for-the-badge)](https://hub.docker.com/r/shlomi10/orangehrm)
-[![Docker Image Size](https://img.shields.io/docker/image-size/shlomi10/orangehrm/001?style=for-the-badge)](https://hub.docker.com/r/shlomi10/orangehrm)
+[![Docker Image Size](https://img.shields.io/docker/image-size/shlomi10/orangehrm/002?style=for-the-badge)](https://hub.docker.com/r/shlomi10/orangehrm)
+[![Live Report](https://img.shields.io/badge/Allure--Live--Report-green?style=for-the-badge&logo=allure)](https://shlomi10.github.io/OrangeHRM/)
 
 **🎯 A comprehensive end-to-end test automation suite for OrangeHRM using modern tools and best practices**
 
@@ -72,7 +73,7 @@ This test automation suite provides comprehensive coverage for OrangeHRM's core 
 
 ### 🛠️ Local Installation
 
-```bash
+bash
 # Clone the repository
 git clone https://github.com/shlomi10/OrangeHRM.git
 cd OrangeHRM
@@ -90,11 +91,11 @@ pip install -r requirements.txt
 
 # Install Playwright browsers
 playwright install
-```
+
 
 ### 🧪 Running Tests
 
-```bash
+bash
 # Run all tests with Allure reporting
 pytest --alluredir=allure-results
 
@@ -106,7 +107,7 @@ pytest -v --alluredir=allure-results
 
 # Generate and serve Allure report
 allure serve allure-results
-```
+
 
 ---
 
@@ -114,27 +115,27 @@ allure serve allure-results
 
 ### 🏃‍♂️ Quick Run (Using Docker Hub Image)
 
-```bash
+bash
 # Pull and run the latest image
 docker run --rm -v "${PWD}/allure-results:/app/allure-results" shlomi10/orangehrm:latest
 
 # Run specific tag
 docker run --rm -v "${PWD}/allure-results:/app/allure-results" shlomi10/orangehrm:v1.0.0
-```
+
 
 ### 🔨 Build Local Image
 
-```bash
+bash
 # Build the image
 docker build -t orangehrm-tests .
 
 # Run tests in container
 docker run --rm -v "${PWD}/allure-results:/app/allure-results" orangehrm-tests
-```
+
 
 ### 🐳 Docker Compose (Full Stack)
 
-```bash
+bash
 # Start the complete testing environment
 docker-compose up --build
 
@@ -149,16 +150,15 @@ docker-compose run tests
 
 # Clean up
 docker-compose down
-```
+
 
 #### 📊 Accessing Reports
 
 After running with Docker Compose, access the Allure report at:
-```
 http://localhost:5050/allure-docker-service/projects/default/reports/latest/index.html
-```
 
-> 💡 **Tip**: If you see a blank page, ensure the `allure-results/` directory exists in your project root.
+
+> 💡 **Tip**: If you see a blank page, ensure the allure-results/ directory exists in your project root.
 
 ---
 
@@ -177,23 +177,21 @@ This project includes a comprehensive CI/CD pipeline that:
 #### 📊 Live Reports
 
 View the latest test results and reports:
-```
 https://shlomi10.github.io/OrangeHRM/
-```
+
 
 #### 🏷️ Docker Tags
 
-Available on Docker Hub: [`shlomi10/orangehrm`](https://hub.docker.com/r/shlomi10/orangehrm)
+Available on Docker Hub: [shlomi10/orangehrm](https://hub.docker.com/r/shlomi10/orangehrm)
 
-- `latest` - Most recent stable build
-- `v1.0.0` - Tagged releases
-- `main` - Latest from main branch
+- latest - Most recent stable build
+- v1.0.0 - Tagged releases
+- main - Latest from main branch
 
 ---
 
 ## 📂 Project Architecture
 
-```
 OrangeHRM/
 ├── 🐳 Dockerfile                    # Container configuration
 ├── 🐳 docker-compose.yml           # Multi-service setup
@@ -215,7 +213,7 @@ OrangeHRM/
 └── 📁 .github/
     └── workflows/
         └── ci.yml                  # GitHub Actions workflow
-```
+
 
 ---
 
@@ -227,7 +225,7 @@ OrangeHRM/
 
 Generate comprehensive HTML reports:
 
-```bash
+bash
 # Generate report
 allure generate allure-results --clean -o allure-report
 
@@ -236,11 +234,11 @@ allure serve allure-results
 
 # Open generated report
 allure open allure-report
-```
+
 
 ### 🔍 Debugging with Playwright
 
-```bash
+bash
 # Show trace files
 npx playwright show-trace trace/trace.zip
 
@@ -249,7 +247,7 @@ pytest --headed --slowmo=1000
 
 # Generate trace on failure
 pytest --tracing=on
-```
+
 
 ### 📝 Logging
 
@@ -266,9 +264,9 @@ Logs are automatically generated and include:
 We welcome contributions! Please follow these steps:
 
 1. **🍴 Fork** the repository
-2. **🌿 Create** a feature branch: `git checkout -b feature/amazing-feature`
-3. **💾 Commit** your changes: `git commit -m 'Add amazing feature'`
-4. **📤 Push** to the branch: `git push origin feature/amazing-feature`
+2. **🌿 Create** a feature branch: git checkout -b feature/amazing-feature
+3. **💾 Commit** your changes: git commit -m 'Add amazing feature'
+4. **📤 Push** to the branch: git push origin feature/amazing-feature
 5. **🔄 Open** a Pull Request
 
 ### 📋 Development Guidelines
@@ -326,3 +324,6 @@ SOFTWARE.
 Made with ❤️ by [Shlomi](https://github.com/shlomi10)
 
 </div>
+
+
+provide a new file
