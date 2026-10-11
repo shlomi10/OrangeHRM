@@ -6,7 +6,7 @@
   <p><em>🎯 A comprehensive end-to-end test automation suite for OrangeHRM using modern tools and best practices</em></p>
 
   ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
-  [![Python](https://img.shields.io/badge/Python-3.13.5-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
+  [![Python](https://img.shields.io/badge/Python-3.15-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
   [![Pytest](https://img.shields.io/badge/Pytest-Test_Framework-green.svg?style=for-the-badge&logo=pytest)](https://docs.pytest.org/)
   [![Allure](https://img.shields.io/badge/Allure-Reports-9249A7.svg?style=for-the-badge&logo=allure)](https://docs.qameta.io/allure/)
   [![Live Report](https://img.shields.io/badge/Allure--Live--Report-ff6f00?style=for-the-badge&logo=allure)](https://shlomi10.github.io/OrangeHRM/)
@@ -40,7 +40,7 @@ This test automation suite provides comprehensive coverage for OrangeHRM's core 
 | Technology | Purpose | Version |
 |------------|---------|---------|
 | 🎭 **Playwright** | Cross-browser UI automation | Latest |
-| 🐍 **Python** | Core language | 3.13.5 |
+| 🐍 **Python** | Core language | 3.15 |
 | 🧪 **Pytest** | Testing framework | Latest |
 | 🔐 **REST API** | User management & data setup | - |
 | 🧱 **Page Object Model** | Clean, maintainable test structure | - |
@@ -54,7 +54,7 @@ This test automation suite provides comprehensive coverage for OrangeHRM's core 
 
 ### 📋 Prerequisites
 
-- Python 3.13.5 or higher
+- Python 3.15 or higher
 - Docker & Docker Compose (optional)
 - Git
 
